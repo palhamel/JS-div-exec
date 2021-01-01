@@ -4,8 +4,14 @@
     <meta charset="UTF-8" />
     <title>JS Drum Kit</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   </head>
   <body>
+    <h2>Tempest sounds</h2>
+    <div class="image-container">
+      <img src="./img/tempest.png" alt="">
+    </div>
+
     <div class="keys">
       <div data-key="65" class="key">
         <kbd>A</kbd>
@@ -56,38 +62,6 @@
     <audio data-key="76" src="sounds/tink.wav"></audio>
 
     <script src="./player.js">
-      // function playSound(e) {
-      //   const audioFile = document.querySelector(
-      //     `audio[data-key="${e.keyCode}"]`
-      //   );
-      //   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-      //   // console.log(key)
-      //   // stop function if no audio == data-key is present:
-      //   if (!audioFile) return;
-      //   // console.log(audio);
-      //   // play audio:
-      //   audioFile.currentTime = 0;
-      //   audioFile.play();
-      //   // add CSS on key press:
-      //   key.classList.add("playing");
-      // };
-
-      // // remove CSS after key press:
-      // function removeTransition(e) {
-      //   if (e.propertyName !== "transform") return;
-      //   // console.log(e.propertyName)
-      //   // console.log(this)
-      //   this.classList.remove("playing");
-      // }
-      
-      // const keys = document.querySelectorAll(".key");
-      // keys.forEach((key) =>
-      // key.addEventListener("transitionend", removeTransition)
-      // );
-      
-      // // listen to element
-      // window.addEventListener("keydown",playSound) 
-
     </script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 html {
   font-size: 10px;
-  background: url('./background.jpg') bottom center;
+  /* background: url('./background.jpg') bottom center; */
   background-size: cover;
 }
 
@@ -13,7 +13,7 @@ body,html {
 .keys {
   display: flex;
   flex: 1;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   align-items: center;
   justify-content: center;
 }
@@ -48,4 +48,12 @@ kbd {
   text-transform: uppercase;
   letter-spacing: .1rem;
   color: #ffc600;
+}
+
+img {
+  width: 600px;
+}
+
+.image-continer {
+  height: 600px;
 }
