@@ -1,1 +1,3 @@
 #### training projects JS
+
+👋🏻
