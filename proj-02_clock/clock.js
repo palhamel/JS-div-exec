@@ -40,10 +40,8 @@ const digitalTime = () => {
   document.getElementById("new-york-time").innerText = hour - 6 + " : " + min;
   // moscow, +3
   document.getElementById("moscow-time").innerText = hour + 3 + " : " + min;
-
   // ISS, UTC
-  // const issTime = new Date.UTC();
-  document.getElementById("iss-time").innerText = hour - 1 + " : " + min;
+  document.getElementById("iss-time").innerText = date.toUTCString();
 };
 const updateTime = (digits) => {
   if (digits < 10) {
