@@ -1,10 +1,10 @@
+// rewritten as ES6 arrow function:
 // Analog clock:
-// select class:
-const secondHand = document.querySelector(".second-hand");
-const minuteHand = document.querySelector(".min-hand");
-const hourHand = document.querySelector(".hour-hand");
+const analogTime = () => {
+  const secondHand = document.querySelector(".second-hand");
+  const minuteHand = document.querySelector(".min-hand");
+  const hourHand = document.querySelector(".hour-hand");
 
-function setDate() {
   const now = new Date();
   // seconds to degrees:
   const seconds = now.getSeconds();
@@ -21,13 +21,12 @@ function setDate() {
   const hourDegrees = (hours / 12) * 360 + (minutes / 60) * 30 + 90;
   hourHand.style.transform = `rotate(${hourDegrees}deg)`;
   // console.log('hour:', hours)
-}
+};
 // run function:
-setInterval(setDate, 1000);
-// -----------------
+setInterval(analogTime, 1000);
 
 // digital clock:
-function currentTime() {
+const digitalTime = () => {
   const date = new Date(); /* creating object of Date class */
   let hour = date.getHours();
   let min = date.getMinutes();
@@ -35,28 +34,23 @@ function currentTime() {
   hour = updateTime(hour);
   min = updateTime(min);
   sec = updateTime(sec);
-  document.getElementById("digital-clock").innerText =
+  document.getElementById("digital-local-time").innerText =
     hour + " : " + min + " : " + sec; /* adding time to the div */
+  // new york, -6
+  document.getElementById("new-york-time").innerText = hour - 6 + " : " + min;
+  // moscow, +3
+  document.getElementById("moscow-time").innerText = hour + 3 + " : " + min;
 
-  // console.log(`${hour} ${min} ${sec}`);
-}
-// check 00 digits or add one 0:
-// function updateTime(digits) {
-//   if (digits < 10) {
-//     return "0" + digits;
-//   } else {
-//     return digits;
-//   }
-// }
-
-// rewrite above function as arrow function:
+  // ISS, UTC
+  // const issTime = new Date.UTC();
+  document.getElementById("iss-time").innerText = hour - 1 + " : " + min;
+};
 const updateTime = (digits) => {
   if (digits < 10) {
     return "0" + digits;
   } else {
     return digits;
   }
-}
-
+};
 // run function:
-setInterval(currentTime, 1000);
+setInterval(digitalTime, 1000);
