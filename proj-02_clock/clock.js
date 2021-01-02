@@ -6,19 +6,16 @@ const hourHand = document.querySelector(".hour-hand");
 
 function setDate() {
   const now = new Date();
-
   // seconds to degrees:
   const seconds = now.getSeconds();
   const secDegrees = (seconds / 60) * 360 + 90;
   secondHand.style.transform = `rotate(${secDegrees}deg)`;
   // console.log('seconds:', seconds);
-
   // minutes to degrees:
   const minutes = now.getMinutes();
   const minDegrees = (minutes / 60) * 360 + (seconds / 60) * 6 + 90;
   minuteHand.style.transform = `rotate(${minDegrees}deg)`;
   // console.log('min:', minutes)
-
   // hours to degrees:
   const hours = now.getHours();
   const hourDegrees = (hours / 12) * 360 + (minutes / 60) * 30 + 90;
@@ -40,18 +37,16 @@ function currentTime() {
   sec = updateTime(sec);
   document.getElementById("digital-clock").innerText =
     hour + " : " + min + " : " + sec; /* adding time to the div */
-  const time = setTimeout(function () {
-    currentTime();
-  }, 1000); /* setting timer */
+
+  console.log(`${hour} ${min} ${sec}`);
 }
 // check 00 digits or add one 0:
-function updateTime(k) {
-  if (k < 10) {
-    return "0" + k;
+function updateTime(digits) {
+  if (digits < 10) {
+    return "0" + digits;
   } else {
-    return k;
+    return digits;
   }
 }
-
-currentTime(); /* calling currentTime() function to initiate the process */
-
+// run function:
+setInterval(currentTime, 1000);
