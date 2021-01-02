@@ -44,7 +44,7 @@ body {
 
 .hand-hour {
   width: 50%;
-  height: 8px;
+  height: 9px;
   background: rgb(31, 30, 30);
   position: absolute;
   top: 50%;

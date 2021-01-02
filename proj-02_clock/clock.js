@@ -38,15 +38,25 @@ function currentTime() {
   document.getElementById("digital-clock").innerText =
     hour + " : " + min + " : " + sec; /* adding time to the div */
 
-  console.log(`${hour} ${min} ${sec}`);
+  // console.log(`${hour} ${min} ${sec}`);
 }
 // check 00 digits or add one 0:
-function updateTime(digits) {
+// function updateTime(digits) {
+//   if (digits < 10) {
+//     return "0" + digits;
+//   } else {
+//     return digits;
+//   }
+// }
+
+// rewrite above function as arrow function:
+const updateTime = (digits) => {
   if (digits < 10) {
     return "0" + digits;
   } else {
     return digits;
   }
 }
+
 // run function:
 setInterval(currentTime, 1000);
