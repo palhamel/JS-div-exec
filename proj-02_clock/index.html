@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>JS + CSS Clock</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-
-
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS + CSS Clock</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
     <div class="clock">
       <div class="clock-face">
         <div class="hand hour-hand"></div>
@@ -16,8 +14,7 @@
       </div>
     </div>
 
-
-  <!-- <style>
+    <!-- <style>
     html {
       background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
       background-size: cover;
@@ -67,21 +64,29 @@
 
   </style> -->
 
-  <script>
-    const 
+    <script>
+      // select class:
+      const secondHand = document.querySelector(".second-hand");
+      const minuteHand = document.querySelector('.min-hand');
 
-    function setDate() {
-      const now = new Date();
-      const seconds = now.getSeconds();
-      // seconds to degrees:
-      const secondsDegrees = ((seconds / 60) * 360)
+      function setDate() {
+        const now = new Date();
 
-      console.log(secondsDegrees)
-    }
+        // seconds to degrees:
+        const seconds = now.getSeconds();
+        const secDegrees = ((seconds / 60) * 360) + 90;
+        secondHand.style.transform = `rotate(${secDegrees}deg)`;
+        console.log('seconds:', seconds);
+        // minutes to degrees:
+        const minutes = now.getMinutes();
+        const minDegrees = ((minutes / 60) * 360) + 90;
+        minuteHand.style.transform = `rotate(${minDegrees}deg)`;
+        console.log('min:', minutes)
 
-    // run function:
-    // setInterval(setDate, 1000)
+      }
 
-  </script>
-</body>
+      // run function:
+      setInterval(setDate, 1000)
+    </script>
+  </body>
 </html>
