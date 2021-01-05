@@ -5,7 +5,7 @@
   <title>Array Cardio 💪</title>
 </head>
 <body>
-  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+  <h2><em>Everything happening in the Console</em> 👻</h2>
   <script>
     // Get your shorts on - this is an array workout!
     // ## Array Cardio Day 1
@@ -45,11 +45,23 @@
     // 2. Give us an array of the inventors first and last names
 
     const fullNames = inventors.map(data => `${data.first} ${data.last}`);
-    console.log(fullNames);
+    console.log('full names:', fullNames);
 
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+
+    // const orderedByBirth = inventors.sort(function(a, b) {
+    //   if(a.year > b.year) {
+    //     return 1;
+    //   } else {
+    //     return -1;
+    //   }
+    // });
+
+    // but nicer is using ternary operators:
+    const orderedByBirth = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
+    console.table(orderedByBirth);
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
