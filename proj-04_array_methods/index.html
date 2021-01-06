@@ -133,9 +133,8 @@
               .filter(streetName => streetName.includes('de'));
               // return will give us all names with 'de'.
 
-      */        
-      // NOTE: this would work great doing webscraping        
-
+      */
+      // NOTE: this would work great doing webscraping
 
       // 7. sort Exercise
       // Sort the people alphabetically by last name
@@ -143,13 +142,11 @@
       const alpha = people.sort((lastOne, nextOne) => {
         // const parts = lastOne.split(', ')
         // console.log(parts)
-        const [ aLast, aFirst ] = lastOne.split(', ')
-        const [ bLast, bFirst ] = nextOne.split(', ')
+        const [aLast, aFirst] = lastOne.split(", ");
+        const [bLast, bFirst] = nextOne.split(", ");
         return aLast > bLast ? 1 : -1;
-      })
-      console.log(alpha)
-
-
+      });
+      console.log(alpha);
 
       // 8. Reduce Exercise
       // Sum up the instances of each of these
@@ -168,7 +165,18 @@
         "van",
         "car",
         "truck",
+        "horse",
       ];
+
+      const transportation = data.reduce(function (obj, item) {
+        if (!obj[item]) {
+          obj[item] = 0;
+        }
+        obj[item]++; // increment by 1
+        return obj;
+      }, {});
+
+      console.log(transportation)
     </script>
   </body>
 </html>
