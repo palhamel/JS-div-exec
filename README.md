@@ -2,4 +2,4 @@
 
 👋🏻🧑🏻‍🌾
 
-Arrays, methods, CSS..
+Arrays, methods, CSS and lots of JS
