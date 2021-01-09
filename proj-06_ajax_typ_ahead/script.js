@@ -1,7 +1,7 @@
+// console.log("yes im here");
+
 const apiData =
   "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
-
-console.log("yes im here");
 
 // empty array - push the json response into this array:
 const cities = [];
@@ -11,8 +11,7 @@ fetch(apiData)
   .then((data) => {
     cities.push(...data);
   });
-
-console.log("the cities array:", cities);
+// console.log("the cities array:", cities);
 
 // match letter vs city or state in array:
 function findMatches(wordToMatch, cities) {
@@ -23,27 +22,44 @@ function findMatches(wordToMatch, cities) {
   });
 }
 
+// put in some nice commas in the number result:
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+// display:
 function displayMatches() {
   const matchArray = findMatches(this.value, cities);
-  console.log(matchArray);
-  const html = matchArray.map(place => {
-    
-    return `
+  // console.log(matchArray);
+  const html = matchArray
+    .map((place) => {
+      // highlight the search frase in result:
+      const regex = new RegExp(this.value, "gi");
+      const cityName = place.city.replace(
+        regex,
+        `<span class="hl">${this.value}</span>`
+      );
+      const stateName = place.state.replace(
+        regex,
+        `<span class="hl">${this.value}</span>`
+      );
+
+      return `
       <li>
-        <span class="name"> ${place.city}, ${place.state} </span>
-        <span class="population"> ${place.population} </span>
+        <span class="name"> ${cityName}, ${stateName} </span>
+        <span class="population"> ${numberWithCommas(place.population)} </span>
       </li>
     `;
-  }).join('');
+    })
+    .join(""); // to get the array as a string .join
+
   suggestions.innerHTML = html;
 }
 
 const searchInput = document.querySelector(".search");
 const suggestions = document.querySelector(".suggestions");
 
-searchInput.addEventListener('change', displayMatches);
-searchInput.addEventListener('keyup', displayMatches);
-
+searchInput.addEventListener("change", displayMatches);
+searchInput.addEventListener("keyup", displayMatches);
 
 /*
 RegExp:
